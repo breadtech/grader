@@ -72,7 +72,7 @@ class CourseListController( Controller, CourseListView.Delegate, CourseListView.
   def br_label( self ):
     return '+'
   def br_clicked( self,x ):
-    self.nav.push( CourseAddController() )
+    self.nav.push( CourseAddController(self.semester) )
 
   # 
   # BreadInterface Lifecycle
