@@ -23,7 +23,7 @@ ASSIGNMENT_MAX_KEY = 'max'
 ASSIGNMENT_NOTES_KEY = 'notes'
 
 def create_assignment_table( db ):
-  db.execute( '''CREATE TABLE assignments (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, 
+  db.execute( '''CREATE TABLE IF NOT EXISTS assignments (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, 
                                            criteria_id INTEGER NOT NULL, 
                                            i INTEGER NOT NULL, 
                                            name TEXT NOT NULL, 
@@ -83,6 +83,8 @@ def get_assignments_for_criteria( db, cr_id ):
     y.append( Assignment( rows[0], criteria, rows[2], rows[3], rows[4], Grade(rows[6], rows[5]), rows[7] ) )
   return y
 
+"""
+ZZ: bugged out...
 def get_assignments_for_course( db, c_id ):
   c = db.cursor()
   c.execute( "SELECT * FROM assignments WHERE course_id=?;", (c_id,) )
@@ -94,6 +96,7 @@ def get_assignments_for_course( db, c_id ):
     criteria = CriteriaDBHelper.get_criteria( db, criteria_id )
     y.append( Assignment( rows[0], criteria, rows[2], rows[3], rows[4], Grade(rows[6], rows[5]), rows[7] ) )
   return y
+"""
 
 def get_all_assignments( db ):
   c = db.cursor()

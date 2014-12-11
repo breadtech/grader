@@ -23,7 +23,7 @@ CRITERIA_WEIGHT_KEY = 'weight'
 # create
 #
 def create_criteria_table( db ):
-  db.execute( '''CREATE TABLE criteria (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+  db.execute( '''CREATE TABLE IF NOT EXISTS criteria (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
                                        course_id INTEGER NOT NULL,
                                        type TEXT NOT NULL,
                                        weight INTEGER NOT NULL);''')
@@ -79,7 +79,7 @@ def get_criteria( db, id ):
 ##
 # read (for a given course)
 # 
-def get_criteria_for_course( db, c_id ):
+def get_criterion_for_course( db, c_id ):
   c = db.cursor()
   c.execute( "SELECT * FROM criteria WHERE course_id=?;", (c_id,) )
   y=[]
@@ -87,7 +87,7 @@ def get_criteria_for_course( db, c_id ):
     course_id = row[1]
     if course_id == -1:
       raise Exception('Criteria ' + rows[2] + ' does not have a valid course')
-    y.append( Criteria(row[0], CourseDBHelper.get_semester( db, row[1] ),row[2],row[3]) )
+    y.append( Criteria(row[0], CourseDBHelper.get_course( db, row[1] ),row[2],row[3]) )
   return y
 
 ##

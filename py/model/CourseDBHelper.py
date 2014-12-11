@@ -24,7 +24,7 @@ COURSE_SUBJECT_KEY = 'subject'
 # create
 #
 def create_course_table( db ):
-  db.execute( '''CREATE TABLE courses (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+  db.execute( '''CREATE TABLE IF NOT EXISTS courses (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
                                        semester_id INTEGER NOT NULL,
                                        title TEXT NOT NULL,
                                        subject TEXT NOT NULL);''')
@@ -76,6 +76,20 @@ def get_course( db, id ):
     return Course( rows[0], semester, rows[2], rows[3] )
   else:
     return None
+
+##
+# read (for a semester)
+#
+def get_courses_for_semester( db, semester_id ):
+  c = db.cursor()
+  c.execute( "SELECT * FROM courses WHERE semester_id=?;", (semester_id,) )
+  y=[]
+  for row in c.fetchall():
+    semester_id = int(row[1])
+    if semester_id == -1:
+      raise Exception('Course ' + row[2] + ' does not have a semester')
+    y.append( Course( row[0], SemesterDBHelper.get_semester( db, semester_id ), row[2], row[3] ) )
+  return y
 
 ##
 # read (all)

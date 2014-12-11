@@ -15,7 +15,7 @@ SEMESTER_SEASON_KEY = 'season'
 SEMESTER_YEAR_KEY = 'year'
 
 def create_semester_table( db ):
-  db.execute( '''CREATE TABLE semesters (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
+  db.execute( '''CREATE TABLE IF NOT EXISTS semesters (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
                                          season TEXT NOT NULL,
                                          year INTEGER NOT NULL);''')
 
@@ -36,7 +36,7 @@ def get_semester( db, id ):
   else:
     return None
 
-def get_semesters( db, season="fall", year=2014 ):
+def get_all_semesters( db, season="fall", year=2014 ):
   c = db.cursor()
   c.execute( "SELECT * FROM semesters" )
   return [ Semester(row[0],row[1],row[2]) for row in c.fetchall() ]
