@@ -4,7 +4,7 @@
 # description: the top-level application class for BreadGrader
 #
 
-from breadinterface import App
+from BreadInterface import App
 from SemesterListController import SemesterListController
 
 class BreadGrader( App ):

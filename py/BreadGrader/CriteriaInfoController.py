@@ -5,7 +5,7 @@
 #   information about a criteria
 #
 
-from breadinterface import Controller
+from BreadInterface import Controller
 from ui import CriteriaInfoView
 from model import BGModelController, Criteria
 

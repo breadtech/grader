@@ -5,7 +5,7 @@
 #   information about a semester
 #
 
-from breadinterface import Controller
+from BreadInterface import Controller
 from ui import SemesterInfoView
 from model import BGModelController, Semester
 

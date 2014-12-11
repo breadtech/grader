@@ -4,7 +4,7 @@
 # description: the controller that displays the list of semesters
 #
 
-from breadinterface import Controller, App
+from BreadInterface import Controller, App
 from model import BGModelController
 from ui import SemesterListView
 from SemesterInfoController import *

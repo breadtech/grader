@@ -4,7 +4,7 @@
 # description: the controller that displays the list of criterias
 #
 
-from breadinterface import Controller
+from BreadInterface import Controller
 from model import BGModelController
 from ui import CriteriaListView
 from CourseInfoController import *

@@ -5,7 +5,7 @@
 #   information about a course
 #
 
-from breadinterface import Controller
+from BreadInterface import Controller
 from ui import CourseInfoView
 from model import BGModelController, Course
 

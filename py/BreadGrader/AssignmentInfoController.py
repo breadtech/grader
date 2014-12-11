@@ -5,7 +5,7 @@
 #   information about a assignment
 #
 
-from breadinterface import Controller
+from BreadInterface import Controller
 from ui import AssignmentInfoView
 from model import BGModelController, Assignment, Grade
 import time

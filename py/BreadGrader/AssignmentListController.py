@@ -4,7 +4,7 @@
 # description: the controller that displays the list of assignments
 #
 
-from breadinterface import Controller
+from BreadInterface import Controller
 from model import BGModelController
 from ui import AssignmentListView
 from AssignmentInfoController import *
