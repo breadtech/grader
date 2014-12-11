@@ -75,7 +75,7 @@ class CriteriaListController( Controller, CriteriaListView.Delegate, CriteriaLis
   def br_label( self ):
     return '+'
   def br_clicked( self,x ):
-    self.nav.push( CriteriaAddController() )
+    self.nav.push( CriteriaAddController(self.course) )
 
   # 
   # BreadInterface Lifecycle
