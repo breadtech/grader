@@ -5,4 +5,5 @@ from CourseInfoView import CourseInfoView
 from CriteriaListView import CriteriaListView
 from CriteriaInfoView import CriteriaInfoView
 from AssignmentListView import AssignmentListView
+from AssignmentInfoView import AssignmentInfoView
 

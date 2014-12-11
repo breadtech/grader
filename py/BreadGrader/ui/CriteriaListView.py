@@ -26,11 +26,15 @@ class CriteriaListView( gtk.ScrolledWindow, lifecycle ):
       return '100.0%'
 
   def selected_index( self ):
-    return self._list.child_position( self._list.get_selection()[0] )
+    sel = self._list.get_selection()
+    sel = sel[0] if len(sel)>0 else None
+    return self._list.child_position( sel ) if sel else None
 
   def item_clicked( self, lst, event ):
     if event.type == gtk.gdk.BUTTON_RELEASE and event.button == 3:
-      self.dg.criteria_clicked_at( self.selected_index() )
+      i = self.selected_index()
+      if not i == None:
+        self.dg.criteria_clicked_at( self.selected_index() ) 
 
   def clear( self ):
     for child in self._list.get_children():
@@ -42,12 +46,12 @@ class CriteriaListView( gtk.ScrolledWindow, lifecycle ):
     for i in range(n):
       # left: title
       left = gtk.Alignment()
-      left.set_padding( 5, 5, 5, 50 )
+      left.set_padding( 10, 10, 10, 80 )
       msg = self.ds.type_at_index(i) + ' (' + str(self.ds.weight_at_index(i)) + '%)'
       left.add( gtk.Label( msg ))
       # right: grade
       right = gtk.Alignment()
-      right.set_padding( 5, 5, 50, 5 )
+      right.set_padding( 10, 10, 80, 10 )
       right.add( gtk.Label( self.ds.avg_at_index(i)))
       # for proper spacing...
       hbox = gtk.HBox()
