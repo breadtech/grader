@@ -75,7 +75,7 @@ class AssignmentListController( Controller, AssignmentListView.Delegate, Assignm
   def br_label( self ):
     return '+'
   def br_clicked( self,x ):
-    self.nav.push( AssignmentAddController() )
+    self.nav.push( AssignmentAddController( self.criteria, len(self.assignment_list)+1 ) )
 
   # 
   # BreadInterface Lifecycle
