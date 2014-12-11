@@ -111,10 +111,10 @@ def get_all_assignments( db ):
     y.append( Assignment( rows[0], criteria, rows[2], rows[3], rows[4], Grade(rows[6], rows[5]), rows[7] ) )
   return y
 
-def set_assignment( db, semester ):
+def set_assignment( db, assignment ):
   args = (assignment.criteria().id(), assignment.index(), assignment.name(), assignment.due(), 
-          assignment.grade().received(), assignment.grade().max(), assignment.notes())
+          assignment.grade().received(), assignment.grade().max(), assignment.notes(), assignment.id())
   c = db.cursor()
   c.execute( "UPDATE assignments SET criteria_id=?,i=?,name=?,due=?,received=?,max=?,notes=? WHERE id=?", args )
   db.commit()
-  return c.rowcount()
+  return c.rowcount
