@@ -8,9 +8,9 @@ import pygtk
 pygtk.require('2.0')
 import gtk
 
-from breadinterface import lifecycle
+from BreadInterface import Lifecycle
 
-class CriteriaListView( gtk.ScrolledWindow, lifecycle ):
+class CriteriaListView( gtk.ScrolledWindow, Lifecycle ):
   class Delegate():
     def n_criterias( self ):
       return 1

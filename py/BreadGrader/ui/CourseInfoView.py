@@ -9,9 +9,9 @@ import pygtk
 pygtk.require('2.0')
 import gtk
 
-from breadinterface import lifecycle
+from BreadInterface import Lifecycle
 
-class CourseInfoView( gtk.Alignment, lifecycle ):
+class CourseInfoView( gtk.Alignment, Lifecycle ):
   class DataSource():
     def the_title( self ):
       return ''

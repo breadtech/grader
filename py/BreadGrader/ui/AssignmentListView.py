@@ -8,9 +8,9 @@ import pygtk
 pygtk.require('2.0')
 import gtk
 
-from breadinterface import lifecycle
+from BreadInterface import Lifecycle
 
-class AssignmentListView( gtk.ScrolledWindow, lifecycle ):
+class AssignmentListView( gtk.ScrolledWindow, Lifecycle ):
   class Delegate():
     def n_assignments( self ):
       return 1

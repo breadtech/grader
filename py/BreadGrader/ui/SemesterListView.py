@@ -8,9 +8,9 @@ import pygtk
 pygtk.require('2.0')
 import gtk
 
-from breadinterface import lifecycle
+from BreadInterface import Lifecycle
 
-class SemesterListView( gtk.ScrolledWindow, lifecycle ):
+class SemesterListView( gtk.ScrolledWindow, Lifecycle ):
   class Delegate():
     def n_semesters( self ):
       return 1

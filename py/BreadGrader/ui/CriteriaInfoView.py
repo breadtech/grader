@@ -9,9 +9,9 @@ import pygtk
 pygtk.require('2.0')
 import gtk
 
-from breadinterface import lifecycle
+from BreadInterface import Lifecycle
 
-class CriteriaInfoView( gtk.Alignment, lifecycle ):
+class CriteriaInfoView( gtk.Alignment, Lifecycle ):
   class DataSource():
     def type( self ):
       return ''

@@ -10,9 +10,9 @@ pygtk.require('2.0')
 import gtk
 import time
 
-from breadinterface import lifecycle
+from BreadInterface import Lifecycle
 
-class AssignmentInfoView( gtk.Alignment, lifecycle):
+class AssignmentInfoView( gtk.Alignment, Lifecycle):
   #
   # datasource delegation
   # 
