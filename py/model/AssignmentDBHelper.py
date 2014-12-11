@@ -51,6 +51,7 @@ def add_assignment( db, assignment ):
   
 def delete_assignment( db, id ):
   db.execute( "DELETE FROM assignments WHERE id=?", (id,) )
+  db.commit()
 
 def get_assignment( db, id ):
   #

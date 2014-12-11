@@ -28,6 +28,7 @@ def create_course_table( db ):
                                        semester_id INTEGER NOT NULL,
                                        title TEXT NOT NULL,
                                        subject TEXT NOT NULL);''')
+  db.commit()
                                       
 ##
 # update (add)
@@ -54,6 +55,7 @@ def add_course( db, course ):
 #
 def delete_course( db, id ):
   db.execute( "DELETE FROM courses WHERE id=?;", (id,) )
+  db.commit()
 
 ##
 # read

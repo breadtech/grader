@@ -27,6 +27,7 @@ def create_criteria_table( db ):
                                        course_id INTEGER NOT NULL,
                                        type TEXT NOT NULL,
                                        weight INTEGER NOT NULL);''')
+  db.commit()
                                       
 ##
 # update (add)
@@ -53,6 +54,7 @@ def add_criteria( db, criteria ):
 #
 def delete_criteria( db, id ):
   db.execute( "DELETE FROM criteria WHERE id=?;", (id,) )
+  db.commit()
 
 ##
 # read

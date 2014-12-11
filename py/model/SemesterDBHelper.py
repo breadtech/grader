@@ -18,6 +18,7 @@ def create_semester_table( db ):
   db.execute( '''CREATE TABLE IF NOT EXISTS semesters (id INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL,
                                          season TEXT NOT NULL,
                                          year INTEGER NOT NULL);''')
+  db.commit()
 
 def add_semester( db, semester ):
   args = (semester.season(), semester.year())
@@ -26,6 +27,7 @@ def add_semester( db, semester ):
   
 def delete_semester( db, id ):
   db.execute( "DELETE FROM semesters WHERE id=?", (id,) )
+  db.commit()
 
 def get_semester( db, id ):
   c = db.cursor()
