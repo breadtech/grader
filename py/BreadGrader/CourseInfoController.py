@@ -69,7 +69,7 @@ class CourseInfoController( Controller, CourseInfoView.DataSource ):
     self.button_info_dict['tr'] = 'save and close'
     
 class CourseAddController( CourseInfoController ):
-  def title( self ):
+  def the_title( self ):
     return ''
   def subject( self ):
     return ''
@@ -79,11 +79,12 @@ class CourseAddController( CourseInfoController ):
     title = self.view.get_title()
     subject = self.view.get_subject()
     # store the new values in the course variable
-    course = Course( title=title, subject=subject )
+    course = Course( -1, self.semester, title, subject )
     # save the changes into the db
     BGModelController.add_course( course )
 
-  def __init__( self ):
+  def __init__( self, semester ):
+    self.semester = semester
     CourseInfoController.__init__( self, None, "Add Course" )
 
 if __name__ == "__main__":
