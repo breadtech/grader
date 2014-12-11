@@ -79,11 +79,12 @@ class CriteriaAddController( CriteriaInfoController ):
     type = self.view.get_type()
     weight = self.view.get_weight()
     # store the new values in the criteria variable
-    criteria = Criteria( type=type, weight=weight )
+    criteria = Criteria( -1, self.course, type, weight )
     # save the changes into the db
     BGModelController.add_criteria( criteria )
 
-  def __init__( self ):
+  def __init__( self, course ):
+    self.course = course
     CriteriaInfoController.__init__( self, None, "Add Criteria" )
 
 if __name__ == "__main__":
