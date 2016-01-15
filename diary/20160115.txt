@@ -1,0 +1,19 @@
+yet another project that i've severely neglected...
+definitely want to keep this guy well maintained but far from it...
+
+best to do a status check right now...
+ios: v0.9 on app store but that's about it...
+ - working on a new 1.0 but it's in a pretty incomplete state on my mba
+android: tried to implement it during the nov hackathon but really failed...
+python: really just exists as a proof of concept for bi
+
+core features:
+- keeping track of current gpa
+- notify on upcoming/recent assignments (due/graded)
+- cross-platform data backup mechanism
+
+data model:
+semester -> course -> criteria -> assignment
+
+desired features:
+- syllabus capture
